@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Test File Read with Line Numbers",
+      "setup": "javac src/FileLineReader.java",
+      "run": "java -cp src FileLineReader",
+      "input": "",
+      "output": "1: Hello World\n2: Java Programming",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 100
+    }
+  ]
+}
