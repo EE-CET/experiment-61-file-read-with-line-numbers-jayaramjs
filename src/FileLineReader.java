@@ -4,14 +4,22 @@ import java.io.IOException;
 
 public class FileLineReader {
     public static void main(String[] args) {
+        // Use relative path as per instructions
         String fileName = "input.txt";
         
-        // TODO: Use a try-with-resources block to open a BufferedReader for the file
-        // TODO: Read the file line by line using a loop
-        // TODO: Keep track of the line number (starting from 1)
-        // TODO: Print each line in the format "lineNumber: lineContent"
-        // TODO: Catch and handle any IOExceptions that might occur
-        
-        
+        // try-with-resources ensures the file is closed automatically
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            int lineNumber = 1;
+
+            // readLine() returns null when the end of the file is reached
+            while ((line = br.readLine()) != null) {
+                System.out.println(lineNumber + ": " + line);
+                lineNumber++;
+            }
+        } catch (IOException e) {
+            // Handle cases where the file might be missing or unreadable
+            System.out.println("Error reading file: " + e.getMessage());
+        }
     }
 }
